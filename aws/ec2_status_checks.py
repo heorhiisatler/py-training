@@ -3,7 +3,7 @@ import schedule
 from telegram import t_notify
 
 ec2_client = boto3.client('ec2', region_name='eu-central-1')
-ec2_resourse = boto3.resource('ec2', region_name='eu-central-1')
+#ec2_resourse = boto3.resource('ec2', region_name='eu-central-1')
 
 #instances = ec2_client.describe_instances()
 
@@ -13,10 +13,10 @@ ec2_resourse = boto3.resource('ec2', region_name='eu-central-1')
 #        print('Server: {}    State: {}'.format(inst['Tags'][0]['Value'], 
 #                                               inst['State']['Name']))
 
-instance_status = ec2_client.describe_instance_status(
-    IncludeAllInstances=True)
-
 def check_instance_status():
+    instance_status = ec2_client.describe_instance_status(
+        IncludeAllInstances=True
+    )
     t_mes = ''
     for status in instance_status['InstanceStatuses']:
         t_mes = t_mes + ('Instance "{}" is {} with state "{}" \n').\
