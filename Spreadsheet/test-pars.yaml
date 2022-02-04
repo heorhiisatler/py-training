@@ -1,0 +1,8 @@
+containerEnvVars:
+  vars:
+    - name: PORT
+      value: "9555"
+    - name: PORT2
+      value: "9556"
+    - name: PORT3
+      value: "9557"
