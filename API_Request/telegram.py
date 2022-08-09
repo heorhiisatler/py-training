@@ -1,8 +1,12 @@
 import json
 import requests
+import pathlib
+
 
 def t_notify(message):
-    k_path = 'training-code\py-training\API_Request\keys.json'
+    k_path = pathlib.Path(__file__).parent.resolve()
+    print(k_path)
+    k_path = str(k_path) + 'keys.json'
     with open(k_path, 'r') as keys_file:
         k = json.load(keys_file)
         token = k['telegram_token']
@@ -12,3 +16,5 @@ def t_notify(message):
                      '&text={}').format(token, chat_id, message)
     #print(t_message_url)
     requests.get(t_message_url)
+
+t_notify("test")
