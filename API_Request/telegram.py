@@ -6,7 +6,7 @@ import pathlib
 def t_notify(message):
     k_path = pathlib.Path(__file__).parent.resolve()
     print(k_path)
-    k_path = str(k_path) + 'keys.json'
+    k_path = str(k_path) + '/keys.json'
     with open(k_path, 'r') as keys_file:
         k = json.load(keys_file)
         token = k['telegram_token']
